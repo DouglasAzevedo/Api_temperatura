@@ -1,6 +1,4 @@
 class BuscaTemperaturaController < ApplicationController
-    require 'net/http'
-    require 'json'
 
     def buscar
         
