@@ -1,5 +1,4 @@
 class RecebeTemp
-
     require 'net/http'
     require 'json'
 
@@ -11,8 +10,20 @@ class RecebeTemp
 
         if retorno["message"]
             return {message: "cidade não existe"}
-        else    
+        else
             retorno["main"]["temp"]
+
+            novoRetorno = {"temperatura": retorno["main"]["temp"],
+                            "pressao": retorno["main"]["pressure"],
+                            "humidade": retorno["main"]["humidity"],
+                            "temperatura maxima": retorno["main"]["temp_max"],
+                            "temperatura minima": retorno["main"]["temp_min"],
+                            "vento": retorno["wind"]["speed"],
+                            "rajada": retorno["wind"]["deg"],
+                            "nascer": Time.at(retorno["sys"]["sunrise"]),
+                            "por do sol": Time.at(retorno["sys"]["sunset"])
+                        }
+                   
         end
 
     end
