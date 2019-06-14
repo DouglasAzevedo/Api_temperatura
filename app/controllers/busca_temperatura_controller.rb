@@ -11,15 +11,5 @@ class BuscaTemperaturaController < ApplicationController
     def temp_params
         params.permit(:cidade)
     end
-
-    def buscarTo
-
-        render json: RecebeFive.new.buscarTo(temp_param[:cidade]), status: :ok
-    end
-
-    private
-
-    def temp_param
-        param.permit(:cidade)
-    end
+    
 end
