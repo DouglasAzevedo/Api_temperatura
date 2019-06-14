@@ -8,7 +8,7 @@ class BuscaTemperaturaController < ApplicationController
     
     private
 
-    def temp_params
+    def temp_params 
         params.permit(:cidade)
     end
     
