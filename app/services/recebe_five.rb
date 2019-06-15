@@ -9,10 +9,9 @@ class RecebeFive
         retorno = JSON.parse(Net::HTTP.get(URI(url)))
     
         dados = [];
-        response["list"].each do <pipe>hora<pipe>
-            tedadosste << [hora] hora:["dt"]
-        end
-
+        retorno[:List].each do |hour|
+            dados << {hora: horario[:dt],clima:{temperatura: hour[:main][:temp]}}
+        end      
         dados;
     end   
 
