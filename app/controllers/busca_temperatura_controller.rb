@@ -8,6 +8,10 @@ class BuscaTemperaturaController < ApplicationController
         render json: RecebeFive.new.prox_hours(temp_params[:cidade]), status: :ok
     end
     
+    def prox_day
+        render json: recebeProxDia.new.prox_day(temp_params[:cidade]), status: :ok
+    end    
+
     private
 
     def temp_params 
