@@ -1,15 +1,17 @@
-class recebeProxDia
+class RecebeProximosDias
     require 'net/http'
     require 'json'
+    require 'time'
 
     def prox_day(cidade)
         @cidade = cidade
-
+        
         url = "http://api.openweathermap.org/data/2.5/forecast?q=#{@cidade},BR&APPID=47eea82303cf3b327239995184d03037"
         retorno = JSON.parse(Net::HTTP.get(URI(url)))
-            dados = []
+            
+        dados = []
         
-            retorno["list"].each do |horario|
+        retorno["list"].each do |horario|
                 dados << {hora: Time.at(horario["dt"]),
             clima: horario["clouds"]["all"],
             descricao: horario["weather"][0]["description"],

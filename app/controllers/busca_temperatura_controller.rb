@@ -9,7 +9,7 @@ class BuscaTemperaturaController < ApplicationController
     end
     
     def prox_day
-        render json: recebeProxDia.new.prox_day(temp_params[:cidade]), status: :ok
+        render json: RecebeProximosDias.new.prox_day(temp_params[:cidade]), status: :ok
     end    
 
     private
